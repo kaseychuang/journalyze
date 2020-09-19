@@ -6,7 +6,6 @@ import Entry from './Entry';
 const ViewEntries = () => {
     return (
         <div>
-            <h1>View Entries</h1>
             <div id = "options">
                 <a className = "button" href = "#">new journal entry</a>
                 <a className = "button" href = "#">view stats</a>
