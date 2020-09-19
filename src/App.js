@@ -15,7 +15,7 @@ class App extends React.Component{
                     <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'></link>
                     <Route path = '/' exact component = {Home} />
                     <Route path = '/moodivities' exact component = {Moodivities} />
-                    <Route path = '/entry' exact component = {ViewEntry} />
+                    <Route path = '/entry/:id' exact component = {ViewEntry} />
                     <Route path = '/new-entry' exact component = {NewEntry} />
                     <Route path = "/stats" exact component = {ViewStats} />
                 </div>

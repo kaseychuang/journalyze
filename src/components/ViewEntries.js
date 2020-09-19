@@ -7,24 +7,34 @@ import axios from 'axios';
 const ViewEntries = () => {
 
     const [entries, setEntries] = useState([]);
-    
-    useEffect(async () => {
-        // make call
-        const data = await axios.get('http://localhost:5000/db');
-        setEntries(data);
-        console.log(data);
 
-    }, [entries])
+    useEffect(() => {
+        const getEntries = async () => {
+            // make call
+            const data = await axios.get('http://localhost:5000/db');
+            setEntries(data.data);
+            console.log(data);
+        }
+        getEntries();
 
+    }, [])
+
+    const renderEntries = () => {
+        return entries.map((entry) => {
+            return <Entry data = {entry} key = {entry._id} />
+            // return <Entry title = {entry.title} key = {entry._id} id = {entry._id} date = {entry.date} snippet = {entry.body.substr(0, 300) + "..."} />
+        });
+    }
 
     return (
         <div>
-            <div id = "home-buttons">
-                <a className = "button new-entry-button" href = "/new-entry">new journal entry</a>
-                <a className = "button view-stats" href = "/stats">view stats</a>
+            <div id="home-buttons">
+                <a className="button new-entry-button" href="/new-entry">new journal entry</a>
+                <a className="button view-stats" href="/stats">view stats</a>
             </div>
-            <Entry key = "id 123" title = "Bad Day" date = "6/14/20" snippet = "Hello therekajskldfjasldkjf" />
-            <Entry key = "id here" title = "Terrible Day" date = "6/15/20" snippet = "Sed ut persptur?"/> 
+            <div>
+                {renderEntries()}
+            </div>
         </div>
     )
 }
