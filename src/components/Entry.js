@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Redirect } from 'react-router';
+import React, {useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import "./Entry.css";
 
 const Entry = (props) => {

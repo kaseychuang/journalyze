@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'; // :c
+import React from 'react';
 import './NavBar.css';
 
 const NavBar = (props) => {    
@@ -9,8 +9,7 @@ const NavBar = (props) => {
             <p className="title center">{props.title}</p>
             <a href="/moodivities" className="navbar-button button moodivities">Moodivities</a>
         </div>
-    
-        )
+    )
 }
 
 export default NavBar;
