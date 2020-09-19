@@ -1,0 +1,19 @@
+.navbar {
+    background-color: #fbe2e5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navbar-button {
+    height: 1%;
+    margin-top: 3%;
+}
+
+.home {
+    margin-left: 20px;
+}
+
+.moodivities {
+    margin-right: 20px;
+}

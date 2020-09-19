@@ -5,7 +5,7 @@ import axios from 'axios';
 
 const Home = () => {
 
-    const [greeting, setGreeting] = useState("What");
+    // const [greeting, setGreeting] = useState("What");
     
     // useEffect(async () => {
     //     // make call
