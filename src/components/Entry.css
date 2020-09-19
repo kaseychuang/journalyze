@@ -1,0 +1,28 @@
+#entry-preview{
+    border-radius: 30px;
+    background-color: lightpink;
+    padding: 20px;
+    padding-right: 30px;
+    padding-left: 30px;
+    margin: 15px;
+    max-height: 100px;
+    overflow-y: hidden;
+}
+
+.entry-header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+   
+    
+}
+
+#entry-date{
+    
+}
+
+#entry-title{
+    font-size: large;
+    font-weight: bold;
+}
+
