@@ -1,0 +1,26 @@
+.spacing {
+    margin-bottom: 20px;
+}
+
+.done {
+    float: middle;
+    border: none;
+}
+
+input[type=text], textarea, select {
+    width: 30%;
+    padding: 12px 20px;
+    margin: 20px 0;
+    box-sizing: border-box;
+    border: 3px solid #ccc;
+    transition: 0.5s;
+    outline: none;
+}
+
+input[type=text]:focus, textarea:focus {
+    border: 3px solid #767c77;
+}
+
+textarea {
+    width: 100%;
+}

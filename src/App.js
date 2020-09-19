@@ -1,10 +1,9 @@
 import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
-import NavBar from './components/NavBar.js';
 import Home from './components/Home.js';
 import Moodivities from './components/Moodivities.js'
 import './Util.css';
-import ViewEntries from './components/ViewEntries.js';
+import NewEntry from './components/NewEntry.js'
 import ViewEntry from './components/ViewEntry.js';
 import ViewStats from './components/ViewStats.js';
 
@@ -13,12 +12,11 @@ class App extends React.Component{
         return(
             <Router>
                 <div>
-                    <NavBar/>
                     <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'></link>
-                    <Route path = "/" exact component = {Home} />
-                    <Route path = "/moodivities" exact component = {Moodivities} />
-                    <Route path = "/entries" exact component = {ViewEntries} />
-                    <Route path = "/entry" exact component = {ViewEntry} />
+                    <Route path = '/' exact component = {Home} />
+                    <Route path = '/moodivities' exact component = {Moodivities} />
+                    <Route path = '/entry' exact component = {ViewEntry} />
+                    <Route path = '/new-entry' exact component = {NewEntry} />
                     <Route path = "/stats" exact component = {ViewStats} />
                 </div>
             </Router>

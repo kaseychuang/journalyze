@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Redirect } from 'react-router';
+import React, {useState } from 'react';
+import { Redirect } from 'react-router-dom';
 import "./Entry.css";
 
 const Entry = (props) => {
@@ -16,7 +16,6 @@ const Entry = (props) => {
                 <div onClick={() => setRedirect(true)} id="entry-preview">
                     <div className="entry-header">
                         <p id="entry-title">{props.title}</p>
-
                         <p id="entry-date">{props.date}</p>
                     </div>
                     {/* this should only be the first few lines */}
