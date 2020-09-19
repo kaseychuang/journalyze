@@ -3,7 +3,7 @@ const router = express.Router();
 
 const PostEntry = require('../models/PostEntry.js')
 
-router.get('/db', (req, res) => {
+router.get('/entry', (req, res) => {
 
     PostEntry.find({})
     .then((data) => {
@@ -15,6 +15,13 @@ router.get('/db', (req, res) => {
     });
 
     
+});
+
+router.post('/save', (req, res) => {
+    console.log('Body: ', req.body());
+    res.json({
+        msg: 'We received your data'
+    });
 });
 
 module.exports = router;

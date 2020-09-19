@@ -13,12 +13,29 @@ const NewEntry = () => {
     
     const handleSubmit = (event) => {
         event.preventDefault();
-        axios.post(`https://localhost5000/entry`, { title, Date: new Date(), body })
-            .then(res => {
-                console.log(res);
-                console.log(res.data);
-            })
+        axios({
+            url: 'https://localhost:5000/save',
+            method: 'POST',
+            data: { title, body }
+        })
+        .then((data) => {
+            console.log(data)
+        })
+        .catch((error) => {
+            console.log("error: ", error)
+        });;
     };
+    //     axios.post('https://localhost:5000/entry/save', { title, body })
+    //         .then(res => {
+    //             console.log(res);
+    //             console.log(res.data);
+    //         }).then((data) => {
+    //             console.log(data)
+    //         })
+    //         .catch((error) => {
+    //             console.log("error: ", error)
+    //         });
+    
     
     return (
         <div>

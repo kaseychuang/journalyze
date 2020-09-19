@@ -11,7 +11,7 @@ const ViewEntries = () => {
     useEffect(() => {
         const getEntries = async () => {
             // make call
-            const data = await axios.get('http://localhost:5000/db');
+            const data = await axios.get('http://localhost:5000/entry');
             setEntries(data.data);
             console.log(data);
         }

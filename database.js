@@ -35,7 +35,7 @@ mongoose.connection.on('connected', () => {
 //         console.log("saved!!!");
 //     }
 // });
-
+app.use(cors());
 app.use(morgan('tiny'));
 //HTTP call
 
