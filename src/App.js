@@ -1,5 +1,6 @@
 import React from 'react';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
+import NavBar from './components/NavBar.js';
 import Home from './components/Home.js';
 
 class App extends React.Component{
@@ -7,7 +8,8 @@ class App extends React.Component{
         return(
             <Router>
                 <div>
-                    <Route path = "/" exact render = {Home} />
+                    <NavBar/>
+                    <Route path = "/" exact component = {Home} />
                 </div>
             </Router>
         )
