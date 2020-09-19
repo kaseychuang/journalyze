@@ -1,0 +1,32 @@
+.title {
+    font-size: 60px;
+    margin-top: 0px;
+    color: #767c77;
+}
+
+div {
+    font: bold 12px 'Quicksand';
+}
+
+body {
+    margin: 0px;
+}
+
+.center {
+    text-align: center;
+}
+
+.button {
+    font-size: 20px;
+    text-decoration: none;
+    background-color: #ea9999ff;
+    color: #333;
+    padding: 10px 20px 10px 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #fff;
+}

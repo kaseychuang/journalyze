@@ -1,16 +1,19 @@
-#center {
-    text-align: center;
+.navbar {
+    background-color: #fbe2e5;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-.button {
-    font: bold 20px 'Quicksand';
-    text-decoration: none;
-    background-color: #fabea7;
-    color: #333333;
-    padding: 10px 20px 10px 20px;
-    border-radius: 15px;
+.navbar-button {
+    height: 1%;
+    margin-top: 6%;
+}
+
+.home {
+    margin-left: 20px;
 }
 
 .moodivities {
-    float: right;
+    margin-right: 20px;
 }

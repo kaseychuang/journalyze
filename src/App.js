@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Route} from 'react-router-dom';
 import NavBar from './components/NavBar.js';
 import Home from './components/Home.js';
 import Moodivities from './components/Moodivities.js'
+import './Util.css';
 
 class App extends React.Component{
     render(){
