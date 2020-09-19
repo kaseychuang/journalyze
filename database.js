@@ -2,11 +2,12 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const path = require('path');
+require('custom-env').env()
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-mongoose.connect('mongodb+srv://gayatrs:Wics2020!@entry.hz7yo.azure.mongodb.net/EntryDB?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true
 });
@@ -24,7 +25,7 @@ const PostSchema = new Schema({
 const PostEntry = mongoose.model('PostEntry', PostSchema);
 
 data = {
-    body: "okay round 2 baby- it's a date problem rn",
+    body: "hi my dawgssssssssssssssssssss",
     date: Date.now()
 };
 
@@ -37,6 +38,9 @@ newEntry.save((error) => {
         console.log("saved!!!");
     }
 });
+
+//HTTP call
+
 
 // const MongoClient = require('mongodb').MongoClient;
 // const uri = "mongodb+srv://gayatrs:Wics2020!@entry.hz7yo.azure.mongodb.net/EntryDB?retryWrites=true&w=majority";

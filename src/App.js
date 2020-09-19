@@ -5,6 +5,7 @@ import Moodivities from './components/Moodivities.js'
 import './Util.css';
 import NewEntry from './components/NewEntry.js'
 import ViewEntry from './components/ViewEntry.js';
+import ViewStats from './ViewStats.js';
 
 class App extends React.Component{
     render(){
@@ -16,6 +17,7 @@ class App extends React.Component{
                     <Route path = '/moodivities' exact component = {Moodivities} />
                     <Route path = '/entry' exact component = {ViewEntry} />
                     <Route path = '/new-entry' exact component = {NewEntry} />
+                    <Route path = "/stats" exact component = {ViewStats} />
                 </div>
             </Router>
         )
