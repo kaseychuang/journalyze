@@ -1,9 +1,12 @@
 import React from 'react';
+import Entry from './Entry';
 
 const ViewEntries = () => {
     return (
         <div>
-            ViewEntry
+            ViewEntries
+            <Entry />
+            <Entry /> 
         </div>
     )
 }

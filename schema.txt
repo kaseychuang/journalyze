@@ -1,0 +1,5 @@
+CREATE TABLE Entry (
+    DateCreated datetime , 
+    Journal text,
+    PRIMARY KEY (DateCreated)
+);
