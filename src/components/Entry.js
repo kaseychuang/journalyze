@@ -9,17 +9,17 @@ const Entry = (props) => {
     // will put in id to render correct entry later
     const renderView = () => {
         if (redirect) {
-            return <Redirect push to = "/entry/id" />
+            return <Redirect push to = {"entry/" + props.data._id} />
         }
         else {
             return (
                 <div onClick={() => setRedirect(true)} id="entry-preview">
                     <div className="entry-header">
-                        <p id="entry-title">{props.title}</p>
-                        <p id="entry-date">{props.date}</p>
+                        <p id="entry-title">{props.data.title}</p>
+                        <p id="entry-date">{props.data.date}</p>
                     </div>
                     {/* this should only be the first few lines */}
-                    <p id="entry-snippet">{props.snippet}</p>
+                    <p id="entry-snippet">{props.data.body.substr(0, 200) + "..."}</p>
                 </div>
             )
         }
