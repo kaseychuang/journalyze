@@ -6,7 +6,7 @@ import Moodivities from './components/Moodivities.js'
 import './Util.css';
 import ViewEntries from './components/ViewEntries.js';
 import ViewEntry from './components/ViewEntry.js';
-
+import ViewStats from './components/ViewStats.js';
 class App extends React.Component{
     render(){
         return(

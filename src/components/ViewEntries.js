@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Entry from './Entry';
+import axios from 'axios';
 
 // clicking on an entry will send you to the ViewEntry for that specific page
 
