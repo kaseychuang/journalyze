@@ -10,8 +10,9 @@ const ViewEntries = () => {
     
     useEffect(async () => {
         // make call
-        const data = await axios.get('http://localhost:5000/demo');
+        const data = await axios.get('http://localhost:5000/db');
         setEntries(data);
+        console.log(data);
 
     }, [entries])
 
