@@ -1,9 +1,10 @@
 import React from 'react';
+import NavBar from './NavBar.js';
 
 const NewEntry = () => {
     return (
         <div>
-            NewEntry
+            <NavBar title = 'new journal entry' />
         </div>
     )
 }
