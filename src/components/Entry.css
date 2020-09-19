@@ -7,6 +7,12 @@
     margin: 30px;
     max-height: 100px;
     overflow-y: hidden;
+    transition: transform .4s;
+}
+
+#entry-preview:hover {
+    transform: scale(1.01);
+    box-shadow: 0 5px 15px rgba(177, 0, 74, 0.4);
 }
 
 .entry-header{
