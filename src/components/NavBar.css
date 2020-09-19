@@ -1,3 +1,16 @@
 #center {
     text-align: center;
 }
+
+.button {
+    font: bold 20px 'Quicksand';
+    text-decoration: none;
+    background-color: #fabea7;
+    color: #333333;
+    padding: 10px 20px 10px 20px;
+    border-radius: 15px;
+}
+
+.moodivities {
+    float: right;
+}
