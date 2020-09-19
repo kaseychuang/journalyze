@@ -1,0 +1,43 @@
+.activity {
+    border-radius: 30px;
+    background-color: #ffccd2;
+    padding: 10px;
+    margin-top: 30px;
+    width: 50%;
+    float: right;
+    transition: transform .4s;
+    font-size: 20px;
+}
+
+.emoji-container {
+    width: 5vw;
+    height: 5vw;
+    background-color: #767c77;
+    color: #ffccd2;
+    float: left;
+    border: solid #333;
+    margin-left: 15%;
+    margin-top: 30px;
+    padding: 5px 5px 5px 5px;
+}
+
+.activity-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.emoji, 
+.emotion {
+    margin: 0;
+}
+
+.emoji {
+    font-size: 45px;
+}
+
+.emotion {
+    font-size: 30px;
+    margin-left: -40px;
+}
