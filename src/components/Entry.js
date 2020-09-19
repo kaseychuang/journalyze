@@ -9,7 +9,7 @@ const Entry = (props) => {
     // will put in id to render correct entry later
     const renderView = () => {
         if (redirect) {
-            return <Redirect push to = "/entry" />
+            return <Redirect push to = "/entry/id" />
         }
         else {
             return (

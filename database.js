@@ -4,9 +4,12 @@ const morgan = require('morgan');
 const path = require('path');
 const PostEntry = require('./models/PostEntry.js')
 require('custom-env').env()
+const cors = require('cors');
+
 
 const app = express();
 const PORT = 5000;
+app.use(cors({ origin: true }));
 
 const routes = require('./routes/EntryRoute.js');
 
