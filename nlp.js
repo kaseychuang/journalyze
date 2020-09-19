@@ -48,4 +48,6 @@ const result = getSentimentData(`I love R&B music. Marvin Gaye is the best.
 // It was so sad when Marvin Gaye died`)
 result.then((data) => {
     console.log(data)
-})
+});
+
+module.exports = getSentimentData; 

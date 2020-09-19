@@ -5,9 +5,11 @@ import NavBar from './NavBar.js';
 
 const ViewStats = () => {
     return (
-        <div class='dailycount'>
-            <NavBar title = 'overall stats' />  
-            <p>trial and eroor baby, trial and error</p> 
+        <div>
+            <NavBar title = 'new journal entry' />
+            <div id="entry">
+                <p>Post Count:</p>
+            </div>
         </div>
     )
 }

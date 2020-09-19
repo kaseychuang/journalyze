@@ -22,6 +22,9 @@ mongoose.connection.on('connected', () => {
     console.log("IT CONNECTED");
 });
 
+app.use(express.json());
+app.use(express.urlencoded({extended: false}));
+
 // data = {
 //     body: "hi my dawgssssssssssssssssssss",
 //     date: Date.now(),
@@ -35,7 +38,7 @@ mongoose.connection.on('connected', () => {
 //         console.log("saved!!!");
 //     }
 // });
-
+app.use(cors());
 app.use(morgan('tiny'));
 //HTTP call
 
