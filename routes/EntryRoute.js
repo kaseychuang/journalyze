@@ -18,10 +18,18 @@ router.get('/entry', (req, res) => {
 });
 
 router.post('/save', (req, res) => {
-    console.log('Body: ', req.body());
-    res.json({
-        msg: 'We received your data'
+    console.log('Body: ', req.body);
+    const data = req.body;
+
+    const newPost = new PostEntry(data);
+    newPost.save((error) => {
+        if (error) {
+            res.status(500).json({msg: "Error: " + error});
+        } else{
+            res.send();
+        }
     });
+
 });
 
 module.exports = router;
