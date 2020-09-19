@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import Entry from './Entry';
+import axios from 'axios';
 
 // clicking on an entry will send you to the ViewEntry for that specific page
 
@@ -9,8 +10,9 @@ const ViewEntries = () => {
     
     useEffect(async () => {
         // make call
-        const data = await axios.get('http://localhost:5000/demo');
+        const data = await axios.get('http://localhost:5000/db');
         setEntries(data);
+        console.log(data);
 
     }, [entries])
 

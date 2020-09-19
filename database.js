@@ -2,10 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const morgan = require('morgan');
 const path = require('path');
+const PostEntry = require('./models/PostEntry.js')
 require('custom-env').env()
 
 const app = express();
-const PORT = process.env.PORT || 3000;
+const PORT = 5000;
+
+const routes = require('./routes/EntryRoute.js');
 
 mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
@@ -16,37 +19,23 @@ mongoose.connection.on('connected', () => {
     console.log("IT CONNECTED");
 });
 
-const Schema = mongoose.Schema;
-const PostSchema = new Schema({
-    date: Date,
-    body : String
-});
+// data = {
+//     body: "hi my dawgssssssssssssssssssss",
+//     date: Date.now(),
+//     title: "hello"
+// };
+// const newEntry = new PostEntry(data);
+// newEntry.save((error) => {
+//     if (error) {
+//         console.log("something went wrong");
+//     } else {
+//         console.log("saved!!!");
+//     }
+// });
 
-const PostEntry = mongoose.model('PostEntry', PostSchema);
-
-data = {
-    body: "hi my dawgssssssssssssssssssss",
-    date: Date.now()
-};
-
-const newEntry = new PostEntry(data);
-
-newEntry.save((error) => {
-    if (error) {
-        console.log("something went wrong");
-    } else {
-        console.log("saved!!!");
-    }
-});
-
+app.use(morgan('tiny'));
 //HTTP call
 
+app.use('/', routes);
+app.listen(PORT, console.log(`Server is starting at ${PORT}`));
 
-// const MongoClient = require('mongodb').MongoClient;
-// const uri = "mongodb+srv://gayatrs:Wics2020!@entry.hz7yo.azure.mongodb.net/EntryDB?retryWrites=true&w=majority";
-// const client = new MongoClient(uri, { useNewUrlParser: true });
-// client.connect(err => {
-//   const collection = client.db("test").collection("devices");
-//   // perform actions on the collection object
-//   client.close();
-// });
