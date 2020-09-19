@@ -22,8 +22,7 @@ const Home = () => {
             <ViewEntries />
             {/* <p>Greeting {greeting}</p> */}
         </div>
-    
-        )
+    )
 }
 
 export default Home;

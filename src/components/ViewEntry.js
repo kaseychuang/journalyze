@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import "./ViewEntry.css";
+import NavBar from './NavBar.js';
 
 const ViewEntry = () => {
     const [title, setTitle] = useState("default title");
@@ -11,6 +12,7 @@ const ViewEntry = () => {
 
     return (
         <div id = "entry">
+            <NavBar title = {title} />
             <div className = "entry-header">
                 <h3 id = "entry-title">{title}</h3>
                 <p id = "entry-date">{date}</p>
