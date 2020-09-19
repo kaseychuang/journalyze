@@ -33,6 +33,10 @@ a:hover {
     color: #fff;
 }
 
+button:hover {
+    color: #fff;
+}
+
 .new-entry-button {
     margin-right: 20px;
     margin-left: -60px;
