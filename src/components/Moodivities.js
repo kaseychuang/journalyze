@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'; // :c
+import React, {useEffect, useState} from 'react';
 import './Home.css';
 
 const Moodivities = () => {

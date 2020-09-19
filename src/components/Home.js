@@ -1,5 +1,6 @@
-import React, {useEffect, useState} from 'react'; // :c
+import React, {useEffect, useState} from 'react';
 import './Home.css';
+import ViewEntries from './ViewEntries.js'
 import axios from 'axios';
 
 
@@ -17,7 +18,7 @@ const Home = () => {
     
     return (
         <div id="main">
-            <p>journalyze journal lies journal eyes <strong>journmood</strong></p>
+            <ViewEntries />
             {/* <p>Greeting {greeting}</p> */}
         </div>
     
