@@ -7,4 +7,4 @@ app = Flask(__name__, static_url_path='', static_folder="public")
 def demo():
     return json.dump("hi")
 
-app.run(host="127.0.0.1", port="80")
+app.run(host="127.0.0.1")
