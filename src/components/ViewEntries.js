@@ -4,6 +4,17 @@ import Entry from './Entry';
 // clicking on an entry will send you to the ViewEntry for that specific page
 
 const ViewEntries = () => {
+
+    const [entries, setEntries] = useState([]);
+    
+    useEffect(async () => {
+        // make call
+        const data = await axios.get('http://localhost:5000/demo');
+        setEntries(data);
+
+    }, [entries])
+
+
     return (
         <div>
             <div id = "home-buttons">

@@ -18,6 +18,7 @@ class App extends React.Component{
                     <Route path = "/moodivities" exact component = {Moodivities} />
                     <Route path = "/entries" exact component = {ViewEntries} />
                     <Route path = "/entry" exact component = {ViewEntry} />
+                    <Route path = "/stats" exact component = {ViewStats} />
                 </div>
             </Router>
         )
