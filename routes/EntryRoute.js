@@ -6,6 +6,8 @@ const DataEntry = require('../models/DataEntry.js');
 const getEmotion = require('../emotionAPI.js');
 const { isCompositeComponent } = require('react-dom/test-utils');
 const { ObjectID } = require('mongodb');
+const Entity = require('../models/Entity.js');
+const { findOneAndUpdate } = require('../models/PostEntry.js');
 
 router.get('/entry/:id', async (req, res) => {
     try{
@@ -19,6 +21,30 @@ router.get('/entry/:id', async (req, res) => {
         res.status(500).send(e)
     }
     
+})
+
+router.get('/entities/extremes/people', async (req, res) => {
+    try{
+        // get most negative and most positive 
+        const positives = await Entity.find({type: "PEOPLE", averageScore: {$gt: 0.5}})
+        const negatives = await Entity.find({type: "PEOPLE", averageScore: {$lt: -0.5}})
+
+        res.send({positive: positives, negative: negatives});
+    }catch(e){
+        res.status(500).send(e);
+    }
+})
+
+router.get('/entities/extremes', async (req, res) => {
+    try{
+        // get most negative and most positive 
+        const positives = await Entity.find({averageScore: {$gt: 0.5}})
+        const negatives = await Entity.find({averageScore: {$lt: -0.5}})
+
+        res.send({positive: positives, negative: negatives});
+    }catch(e){
+        res.status(500).send(e);
+    }
 })
 
 router.get('/entries', (req, res) => {
@@ -73,8 +99,46 @@ router.post('/save', async (req, res) => {
             }
         });
 
+        // // Either update or create a new Entity
+        Object.keys(nlp.entities).forEach(async (entity) => {
+            // check if it already exists
+            try{
+                const entityData = await Entity.findOne({name: entity.toLowerCase()})
+                console.log(entityData);
+                if (!entityData){
+                    console.log("Creating new")
+                    // create new 
+                    const newEntity = new Entity({
+                        name: entity.toLowerCase(), 
+                        type: nlp.entities[entity].type, 
+                        freq: nlp.entities[entity].freq, 
+                        averageScore: parseFloat(nlp.entities[entity].score)
+                    })
+                    await newEntity.save();
+                }
+                else{
+                    // update
+                    console.log(nlp.entities[entity].type)
+                    const newFreq = entityData.freq + nlp.entities[entity].freq;
+                    const update = {
+                        freq: newFreq,
+                        averageScore: entityData.averageScore / newFreq
+                    }
+                    await Entity.findOneAndUpdate({name: entity}, update);
+                }
+            }catch(e){
+                console.log(e)
+                res.status(500).send(e)
+
+            }
+         
+        })
+
+
     } catch (error) {
-        console.log('Error: ', error);
+        console.log(error)
+
+        res.status(500).send(error)
     }
 
 });
