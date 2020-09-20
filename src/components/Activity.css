@@ -1,0 +1,55 @@
+.activity {
+    border-radius: 30px;
+    background-color: #ffccd2;
+    padding: 10px;
+    margin-top: 30px;
+    width: 50%;
+    float: right;
+    transition: transform .4s;
+    font-size: 20px;
+}
+
+.emoji-container {
+    float: left;
+    margin-left: 4%;
+    margin-top: 30px;
+    border: none;
+}
+
+.activity-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+
+.emoji, 
+.emotion {
+    margin: 0;
+}
+
+.emoji {
+    font: 45px 'Quicksand';
+    text-decoration: none;
+    padding: 10px 20px 10px 20px;
+    border-radius: 15px;
+    background-color: #767c77;
+    border: none;
+    width: 150px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.emotion {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffccd2;
+}
+
+#emoji-list {
+    margin-top: 50px;
+}
+
+.emoji:hover {
+    background-color: #435446;
+}
