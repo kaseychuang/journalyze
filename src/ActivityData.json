@@ -1,0 +1,32 @@
+{
+    "happy": [
+        "Treat  yourself for being you!",
+        "Write down 5 things you're grateful for"
+    ],
+    "sad": [
+        "Spend time with someone you love",
+        "Perform a random act of kindness",
+        "Dress up and go out!",
+        "Listen to your favorite music"
+    ],
+    "fear": [
+        "Take deep breaths and focus on the present",
+        "Watch something funny"
+    ],
+    "bored": [
+        "Cook for your family or friends",
+        "Reach out to a friend"
+    ],
+    "excited": [
+        "Jot down what you're excited about",
+        "Volunteer for a non-profit",
+        "Go for a job to release your excess energy"
+    ],
+    "angry": [
+        "Complete a YouTube workout video",
+        "Go star gazing",
+        "Watch your favorite TV show",
+        "Meditate",
+        "Practice forgiveness towards yourself and others"
+    ]
+}
