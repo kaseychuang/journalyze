@@ -47,9 +47,29 @@
 }
 
 #emoji-list {
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 .emoji:hover {
     background-color: #435446;
+}
+
+hr.separator {
+    margin-top: 50px;
+    overflow: visible;
+    padding: 0;
+    border: none;
+    border-top: medium double #333;
+    color: #333;
+    text-align: center;
+}
+  
+hr.separator:after {
+    content: '§';
+    display: inline-block;
+    position: relative;
+    top: -0.7em;
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    background: #9cada4;
 }

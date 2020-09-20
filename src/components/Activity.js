@@ -24,7 +24,10 @@ const Moodivities = () => {
                     <p>Treat yourself with your favorite food, movie, or video game</p>
                 </div>
             </div>
-
+            
+            <hr className="separator"></hr>
+            <h1 className="center suggest-heading">View Other Activities Below</h1>
+            
             <div id="emoji-list">
                 <div className="emoji-container">
                     <button className="emoji">💩<br></br><p class="emotion center">poop</p></button>
