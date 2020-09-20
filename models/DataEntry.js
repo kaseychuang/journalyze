@@ -6,7 +6,8 @@ const DataSchema = new Schema({
     _id: ObjectId,
     score: Number,
     entities: Object,
-    date: Date
+    date: Date,
+    emotion: Object
 });
 
 const DataEntry = mongoose.model('DataEntry', DataSchema);
