@@ -6,8 +6,21 @@ const DataEntry = require('../models/DataEntry.js');
 const { isCompositeComponent } = require('react-dom/test-utils');
 const { ObjectID } = require('mongodb');
 
-router.get('/entry', (req, res) => {
+router.get('/entry/:id', async (req, res) => {
+    try{
+        const id = req.params.id;
+        const entry = await PostEntry.findById(id);
+        if (!entry){
+            return res.status(400).send({error: "Couldn't find that entry"});
+        }
+        res.status(200).send(entry);
+    }catch (e){
+        res.status(500).send(e)
+    }
+    
+})
 
+router.get('/entries', (req, res) => {
     PostEntry.find({})
     .then((data) => {
         console.log('Data:');
@@ -16,8 +29,6 @@ router.get('/entry', (req, res) => {
     .catch((error) => {
         console.log('Error: ', error);
     });
-
-    
 });
 
 router.post('/save', (req, res) => {

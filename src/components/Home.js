@@ -9,7 +9,6 @@ const Home = () => {
         <div id="main">
             <NavBar title = 'journalyze' />  
             <ViewEntries />
-            {/* <p>Greeting {greeting}</p> */}
         </div>
     )
 }
