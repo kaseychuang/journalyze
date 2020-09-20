@@ -58,7 +58,7 @@ const ViewStats = () => {
     }
 
     const state = {
-        labels: getLineGraphData()[0].reverse(),
+        labels: getLineGraphData()[0],
         datasets: [
             {
                 fill: false,
