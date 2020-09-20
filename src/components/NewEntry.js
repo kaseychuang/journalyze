@@ -13,18 +13,6 @@ const NewEntry = () => {
     
     const handleSubmit = (event) => {
         event.preventDefault();
-    //     axios({
-    //         url: 'http://localhost:5000/save',
-    //         method: 'POST',
-    //         data: { title, body }
-    //     })
-    //     .then((data) => {
-    //         console.log(data)
-    //     })
-    //     .catch((error) => {
-    //         console.log("error: ", error)
-    //     });;
-    // };
         axios.post('http://localhost:5000/save', { title, body, date: new Date() })
             .then((data) => {
                 console.log(data);

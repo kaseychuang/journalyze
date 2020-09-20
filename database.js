@@ -3,6 +3,7 @@ const mongoose = require('mongoose');
 const morgan = require('morgan');
 const path = require('path');
 const PostEntry = require('./models/PostEntry.js')
+const DataEntry = require('./models/DataEntry.js')
 require('custom-env').env()
 const cors = require('cors');
 
@@ -25,19 +26,7 @@ mongoose.connection.on('connected', () => {
 app.use(express.json());
 app.use(express.urlencoded({extended: false}));
 
-// data = {
-//     body: "hi my dawgssssssssssssssssssss",
-//     date: Date.now(),
-//     title: "hello"
-// };
-// const newEntry = new PostEntry(data);
-// newEntry.save((error) => {
-//     if (error) {
-//         console.log("something went wrong");
-//     } else {
-//         console.log("saved!!!");
-//     }
-// });
+
 app.use(cors());
 app.use(morgan('tiny'));
 //HTTP call
