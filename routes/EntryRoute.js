@@ -23,6 +23,18 @@ router.get('/entry/:id', async (req, res) => {
     
 })
 
+
+router.get('/stats', (req, res) => {
+    DataEntry.find({})
+    .then((data) => {
+        console.log('Data:');
+        res.json(data);
+    })
+    .catch((error) => {
+        console.log('Error: ', error);
+    });
+});
+
 router.get('/entities/extremes/people', async (req, res) => {
     try{
         // get most negative and most positive 
