@@ -10,15 +10,10 @@
 }
 
 .emoji-container {
-    width: 5vw;
-    height: 5vw;
-    background-color: #767c77;
-    color: #ffccd2;
     float: left;
-    border: solid #333;
-    margin-left: 15%;
+    margin-left: 4%;
     margin-top: 30px;
-    padding: 5px 5px 5px 5px;
+    border: none;
 }
 
 .activity-container {
@@ -34,10 +29,27 @@
 }
 
 .emoji {
-    font-size: 45px;
+    font: 45px 'Quicksand';
+    text-decoration: none;
+    padding: 10px 20px 10px 20px;
+    border-radius: 15px;
+    background-color: #767c77;
+    border: none;
+    width: 150px;
+    cursor: pointer;
+    transition: 0.3s;
 }
 
 .emotion {
-    font-size: 30px;
-    margin-left: -40px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #ffccd2;
+}
+
+#emoji-list {
+    margin-top: 50px;
+}
+
+.emoji:hover {
+    background-color: #435446;
 }
