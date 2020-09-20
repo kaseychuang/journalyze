@@ -22,7 +22,6 @@ const ViewEntries = () => {
     const renderEntries = () => {
         return entries.map((entry) => {
             return <Entry data = {entry} key = {entry._id} />
-            // return <Entry title = {entry.title} key = {entry._id} id = {entry._id} date = {entry.date} snippet = {entry.body.substr(0, 300) + "..."} />
         });
     }
 

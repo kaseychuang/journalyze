@@ -16,7 +16,7 @@ const Entry = (props) => {
                 <div onClick={() => setRedirect(true)} id="entry-preview">
                     <div className="entry-header">
                         <p id="entry-title">{props.data.title}</p>
-                        <p id="entry-date">{props.data.date}</p>
+                        <p id="entry-date">{(new Date(props.data.date)).toLocaleDateString() + ' ' + (new Date(props.data.date)).toLocaleTimeString()}</p>
                     </div>
                     {/* this should only be the first few lines */}
                     <p id="entry-snippet">{props.data.body.substr(0, 200) + "..."}</p>

@@ -16,10 +16,9 @@ const ViewEntry = (props) => {
                 console.log(id);
                 // make call to backend
                 const entry = await axios.get("http://localhost:5000/entry/" + id)
-                setDate(entry.data.date);
+                setDate((new Date(entry.data.date)).toLocaleDateString() + ' ' + (new Date(entry.data.date)).toLocaleTimeString());
                 setTitle(entry.data.title)
                 setContent(entry.data.body);
-                console.log(entry)
             } catch(e){
                 alert("Unable to get entry, please refresh")
             }
