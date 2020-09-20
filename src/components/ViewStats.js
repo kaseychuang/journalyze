@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import NavBar from './NavBar.js';
+import PeopleStats from './PeopleStats.js';
 import './ViewStats.css';
 import axios from 'axios';
 import { Line, Pie } from 'react-chartjs-2';
@@ -143,8 +144,8 @@ const ViewStats = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
+            <PeopleStats />
         </div>
     )
 }

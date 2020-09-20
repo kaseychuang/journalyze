@@ -20,6 +20,35 @@
     padding-left: 30px;
     font-size: 30px;
     margin: 15px;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+table, td, th {  
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+table {
+    border-collapse: collapse;
+    width: 80%;
+}
+
+th, td {
+    padding: 15px;
+}
+
+.positive,
+.negative {
+    width: 50%;
+}
+
+.names {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 }
 .grid-item2 {
     border: none;
@@ -29,6 +58,3 @@
     margin-top: 30px;
 }
 
-.rv-xy-plot {
-    font-family: sans-serif;
-  }
