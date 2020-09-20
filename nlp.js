@@ -23,7 +23,7 @@ const getSentimentData = async (text) => {
         extractDocumentSentiment: true 
     }
     const [result] = await client.annotateText({document, features})
-    console.log(result);
+    // console.log(result);
 
     data = {}
     data.documentSentiment = result.documentSentiment; // overall stats
@@ -43,11 +43,11 @@ const getSentimentData = async (text) => {
 }
 
 // testing
-const result = getSentimentData(`I love R&B music. Marvin Gaye is the best.
-// 'What's Going On' is one of my favorite songs. Marvin Gaye
-// It was so sad when Marvin Gaye died`)
-result.then((data) => {
-    console.log(data)
-});
+// const result = getSentimentData(`I love R&B music. Marvin Gaye is the best.
+// // 'What's Going On' is one of my favorite songs. Marvin Gaye
+// // It was so sad when Marvin Gaye died`)
+// result.then((data) => {
+//     console.log(data)
+// });
 
 module.exports = getSentimentData; 
