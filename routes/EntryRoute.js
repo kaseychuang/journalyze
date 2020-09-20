@@ -21,6 +21,17 @@ router.get('/entry/:id', async (req, res) => {
     
 })
 
+router.get('/stats', (req, res) => {
+    DataEntry.find({})
+    .then((data) => {
+        console.log('Data:');
+        res.json(data);
+    })
+    .catch((error) => {
+        console.log('Error: ', error);
+    });
+});
+
 router.get('/entries', (req, res) => {
     PostEntry.find({})
     .then((data) => {

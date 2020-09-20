@@ -1,13 +1,34 @@
-#entry{
-    display: flex;
-    flex-direction: column;
+.grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding: 10px;
+}
+
+.grid-container-full {
+    display: grid;
+    grid-template-columns: 65% 35%;
+    padding: 10px;
+    vertical-align: center;
+}
+
+.grid-item {
     border-radius: 40px;
     border: 20px solid lightpink;
     background-color: white;
     padding: 20px;
     padding-right: 30px;
     padding-left: 30px;
+    font-size: 30px;
     margin: 15px;
-    max-height: 300px;
-    overflow-y: auto;
 }
+.grid-item2 {
+    border: none;
+}
+
+.pie {
+    margin-top: 30px;
+}
+
+.rv-xy-plot {
+    font-family: sans-serif;
+  }
