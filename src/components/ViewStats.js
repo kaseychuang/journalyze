@@ -44,7 +44,6 @@ const ViewStats = () => {
         sum.forEach(item => {
             item = item/count;
         });;
-        console.log("The array is: ", sum);
         return sum;
     }
 
@@ -116,7 +115,7 @@ const ViewStats = () => {
                                     title: {
                                         display: true,
                                         text: 'Sentiment Score for Past Entries',
-                                        fontSize: 25
+                                        fontSize: 20
                                     },
                                     legend: {
                                         display: false
@@ -133,19 +132,19 @@ const ViewStats = () => {
                                     title: {
                                         display: true,
                                         text: 'Average Aggregate Mood',
-                                        fontSize: 25
+                                        fontSize: 20
                                     },
                                     legend: {
                                         display: true,
-                                        position: 'right'
+                                        position: 'bottom'
                                     }
                                 }}
                             />
                         </div>
+                        <PeopleStats />
                     </div>
                 </div>
             </div>
-            <PeopleStats />
         </div>
     )
 }
