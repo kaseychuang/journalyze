@@ -31,15 +31,16 @@ const Moodivities = () => {
             valueList.sort();
             const max = valueList[valueList.length -1];
             const secondMax = valueList[valueList.length -2];
+            var keyLower;
 
             for (const key of Object.keys(lastEmotion)) {
-                if (lastEmotion[key] == max) {
-                    var keyLower = key.toLowerCase();
+                if (lastEmotion[key] === max) {
+                    keyLower = key.toLowerCase();
                     setEmotion1(keyLower);
                     setActivity1(json[keyLower][Math.floor(Math.random() * json[keyLower].length)]);
                 }
-                if (lastEmotion[key] == secondMax) {
-                    var keyLower = key.toLowerCase();
+                if (lastEmotion[key] === secondMax) {
+                    keyLower = key.toLowerCase();
                     setEmotion2(keyLower);
                     setActivity2(json[keyLower][Math.floor(Math.random() * json[keyLower].length)]);
                 }
