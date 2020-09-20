@@ -10,7 +10,6 @@
     margin: 15px;
     max-height: 300px;
     overflow-y: auto;
-    overflow-x: hidden;
 }
 
 #view-analysis-btn{
@@ -21,6 +20,7 @@
 .entry-analysis {
     font-size: 30px;
     color: #fff;
+    overflow-x: hidden;
 }
 
 .entry-score {
