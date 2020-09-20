@@ -40,7 +40,7 @@ const EmojiList = (props) => {
         return (props.emojis.map((emoji) => {
             return (
                 <button
-                    onClick={() => { setSelectedEmotion(emoji) }}
+                    onClick={() => { setSelectedEmotion(emoji); window.scrollTo(0,document.body.scrollHeight); }}
                     className={`emoji ${emoji === selectedEmotion ? "active" : ""}`}>{emojis[emoji]}<br></br><p className="emotion center">{emoji}</p></button>
             )
         }));

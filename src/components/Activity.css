@@ -85,3 +85,7 @@ hr.separator:after {
 .emoji.active {
     background-color: #435446;
 }
+
+html {
+    scroll-behavior: smooth;
+}
