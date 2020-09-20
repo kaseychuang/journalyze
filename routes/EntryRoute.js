@@ -23,6 +23,18 @@ router.get('/entry/:id', async (req, res) => {
     
 })
 
+
+router.get('/stats', (req, res) => {
+    DataEntry.find({})
+    .then((data) => {
+        console.log('Data:');
+        res.json(data);
+    })
+    .catch((error) => {
+        console.log('Error: ', error);
+    });
+});
+
 router.get('/entities/extremes/people', async (req, res) => {
     try{
         // get most negative and most positive 
@@ -104,27 +116,30 @@ router.post('/save', async (req, res) => {
             // check if it already exists
             try{
                 const entityData = await Entity.findOne({name: entity.toLowerCase()})
-                console.log(entityData);
+
                 if (!entityData){
-                    console.log("Creating new")
                     // create new 
-                    const newEntity = new Entity({
-                        name: entity.toLowerCase(), 
-                        type: nlp.entities[entity].type, 
-                        freq: nlp.entities[entity].freq, 
-                        averageScore: parseFloat(nlp.entities[entity].score)
-                    })
-                    await newEntity.save();
+                    if (parseFloat(nlp.entities[entity].score) !== 0){
+                        const newEntity = new Entity({
+                            name: entity.toLowerCase(), 
+                            type: nlp.entities[entity].type, 
+                            freq: nlp.entities[entity].freq, 
+                            averageScore: parseFloat(nlp.entities[entity].score)
+                        })
+                        await newEntity.save();
+                    }
                 }
                 else{
                     // update
-                    console.log(nlp.entities[entity].type)
-                    const newFreq = entityData.freq + nlp.entities[entity].freq;
-                    const update = {
-                        freq: newFreq,
-                        averageScore: entityData.averageScore / newFreq
+                    if (parseFloat(nlp.entities[entity].score) !== 0){
+                        const newFreq = entityData.freq + nlp.entities[entity].freq;
+                        const update = {
+                            freq: newFreq,
+                            averageScore: entityData.averageScore / newFreq
+                        }
+                        await Entity.findOneAndUpdate({name: entity}, update);
                     }
-                    await Entity.findOneAndUpdate({name: entity}, update);
+             
                 }
             }catch(e){
                 console.log(e)
