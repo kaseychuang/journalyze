@@ -1,6 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import './Home.css';
-import NavBar from './NavBar.js';
 import './Activity.css';
 
 const Moodivities = () => {
