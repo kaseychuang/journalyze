@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import './Home.css';
 import NavBar from './NavBar.js';
 import './Moodivities.css';
 import Activity from './Activity.js';
