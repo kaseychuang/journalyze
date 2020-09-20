@@ -1,15 +1,15 @@
 import React from 'react';
 import NavBar from './NavBar.js';
-
-// clicking on an entry will send you to the ViewEntry for that speciic page
+import PeopleStats from './PeopleStats.js';
 
 const ViewStats = () => {
     return (
         <div>
-            <NavBar title = 'new journal entry' />
+            <NavBar title = 'overall stats' />
             <div id="entry">
                 <p>Post Count:</p>
             </div>
+            <PeopleStats />
         </div>
     )
 }

@@ -26,8 +26,8 @@ router.get('/entry/:id', async (req, res) => {
 router.get('/entities/extremes/people', async (req, res) => {
     try{
         // get most negative and most positive 
-        const positives = await Entity.find({type: "PEOPLE", averageScore: {$gt: 0.5}})
-        const negatives = await Entity.find({type: "PEOPLE", averageScore: {$lt: -0.5}})
+        const positives = await Entity.find({type: "PERSON", averageScore: {$gt: 0.5}})
+        const negatives = await Entity.find({type: "PERSON", averageScore: {$lt: -0.5}})
 
         res.send({positive: positives, negative: negatives});
     }catch(e){
