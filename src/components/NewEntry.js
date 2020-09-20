@@ -14,7 +14,6 @@ const NewEntry = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-
         axios.post('http://localhost:5000/save', { title, body, date: new Date() })
             .then((data) => {
                 console.log(data);
