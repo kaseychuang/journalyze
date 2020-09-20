@@ -1,39 +1,65 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import "./Activity.css";
+const json = require('../ActivityData.json');
 
 
 const emojis = {
-    "sad": "😢", 
-    "happy": "🥰", 
-    "angry": "😡", 
-    "bored": "🥱", 
-    "fear":  "😱", 
+    "sad": "😢",
+    "happy": "🥰",
+    "angry": "😡",
+    "bored": "🥱",
+    "fear": "😱",
     "excited": "🤩"
 }
 
 const EmojiList = (props) => {
+    const [selectedEmotion, setSelectedEmotion] = useState("")
+    const [activity, setActivity] = useState("");
 
-    return(
-        <div>
+    useEffect(() => {
+        // get an activity
+        if (selectedEmotion !== "") {
+            setActivity(json[selectedEmotion][Math.floor(Math.random() * json[selectedEmotion].length)]);
+        }
+
+    }, [selectedEmotion])
+
+    const renderActivity = () => {
+        if (selectedEmotion) {
+            return (
+                <div align="center">
+                    <div id="display-activity" className="box arrow-top">
+                        <p className="center">{activity}</p>
+                    </div>
+                </div>
+            )
+        }
+    }
+
+    const renderButtons = () => {
+        return (props.emojis.map((emoji) => {
+            return (
+                <button
+                    onClick={() => { setSelectedEmotion(emoji) }}
+                    className={`emoji ${emoji === selectedEmotion ? "active" : ""}`}>{emojis[emoji]}<br></br><p className="emotion center">{emoji}</p></button>
+            )
+        }));
+    }
+
+    return (
+        <div >
             <hr className="separator"></hr>
-            <h1 className="center suggest-heading">View Other Activities Below</h1>
-            
-            <div id="emoji-list">
-                <div className="emoji-container">
-                    <button className="emoji">{emojis[props.emojis[0]]}<br></br><p className="emotion center">{props.emojis[0]}</p></button>
+            <div id="other-activities">
+                <h1 className="center suggest-heading">View Other Activities Below</h1>
+
+                <div id="emoji-list">
+                    {renderButtons()}
                 </div>
-                <div className="emoji-container">
-                    <button className="emoji">{emojis[props.emojis[1]]}<br></br><p className="emotion center">{props.emojis[1]}</p></button>
-                </div>
-                <div className="emoji-container">
-                    <button className="emoji">{emojis[props.emojis[2]]}<br></br><p className="emotion center">{props.emojis[2]}</p></button>
-                </div>
-                <div className="emoji-container">
-                    <button className="emoji">{emojis[props.emojis[3]]}<br></br><p className="emotion center">{props.emojis[3]}</p></button>
-                </div>
+                {renderActivity()}
             </div>
+
         </div>
-       
+
     )
 }
 
