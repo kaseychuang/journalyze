@@ -6,7 +6,9 @@ const PostSchema = new Schema({
     _id: ObjectId,
     title: String,
     date: Date,
-    body : String
+    body : String,
+    score: Number,
+    emotion: Object
 });
 
 const PostEntry = mongoose.model('PostEntry', PostSchema);

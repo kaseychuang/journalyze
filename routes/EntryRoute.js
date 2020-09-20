@@ -3,6 +3,7 @@ const router = express.Router();
 const getSentimentData = require('../nlp.js');
 const PostEntry = require('../models/PostEntry.js');
 const DataEntry = require('../models/DataEntry.js');
+const getEmotion = require('../emotionAPI.js');
 const { isCompositeComponent } = require('react-dom/test-utils');
 const { ObjectID } = require('mongodb');
 
@@ -31,48 +32,52 @@ router.get('/entries', (req, res) => {
     });
 });
 
-router.post('/save', (req, res) => {
-    console.log('Body: ', req.body);
-    const objectid = ObjectID();
-    
-    const data = {
-        title: req.body.title,
-        body: req.body.body,
-        _id: objectid,
-        date: req.body.date
-    };
 
-    const nlp = getSentimentData(data.body)
-        .then((data) => {
-            console.log(data);
-            const pool = {
-                score: parseFloat(data.documentSentiment.score),
-                entities: data.entities,
-                _id: objectid,
-                date: req.body.date
-            };
-            const newData = new DataEntry(pool);
-            newData.save((error) => {
-                if (error) {
-                    res.status(500).json({msg: "Error: " + error});
-                } else{
-                    res.send();
-                }
-            });
-        })
-        .catch((error) => {
-            console.log('Error: ', error);
-        });;
+router.post('/save', async (req, res) => {
+    try {
+        console.log('Body: ', req.body);
+        const objectid = ObjectID();
+        let emotions =  await getEmotion(req.body.body)
+        emotions = JSON.parse(emotions)['emotion'];
+           
+        const nlp = await getSentimentData(req.body.body)
+        const pool = {
+            score: parseFloat(nlp.documentSentiment.score),
+            entities: nlp.entities,
+            _id: objectid,
+            date: req.body.date,
+            emotion: emotions
+        };
+        const newData = new DataEntry(pool);
+        newData.save((error) => {
+            if (error) {
+                res.status(500).json({msg: "ErrorSavePool: " + error});
+            } else{
+                res.send();
+            }
+        });
+        const entry = {
+            title: req.body.title,
+            body: req.body.body,
+            _id: objectid,
+            date: req.body.date,
+            score: parseFloat(data.documentSentiment.score),
+            emotion: emotions
+        };
+        const newPost = new PostEntry(entry);
+        newPost.save((error) => {
+            if (error) {
+                res.status(500).json({msg: "ErrorSaveEntry: " + error});
+            } else{
+                res.send();
+            }
+        });
 
-    const newPost = new PostEntry(data);
-    newPost.save((error) => {
-        if (error) {
-            res.status(500).json({msg: "Error: " + error});
-        } else{
-            res.send();
-        }
-    });
+    } catch (error) {
+        console.log('Error: ', error);
+    }
 
 });
+
 
 module.exports = router;
