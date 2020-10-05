@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import {Redirect} from 'react-router-dom';
+import { Redirect } from 'react-router-dom';
 import NavBar from './NavBar.js';
 import './ViewEntry.css';
 import './NewEntry.css';
@@ -24,6 +24,11 @@ const NewEntry = () => {
             });
     };
 
+    const clearForm = (event) => {
+        document.getElementById('entry-title').value = '';
+        document.getElementById('entry-snippet').value = '';
+    };
+
     const renderView = () => {
         if (redirect) {
             return <Redirect push to={"/"} />
@@ -33,12 +38,17 @@ const NewEntry = () => {
                 <div>
                     <NavBar title='new journal entry' />
                     <div id="entry">
+                        <div>
+                            <a class="material-icons cancel-button" onClick={clearForm}>
+                                clear</a>
+                        </div>
+                        
                         <form id="new-entry-form" className="center" onSubmit={handleSubmit}>
                             <input type="text" id="entry-title" className="center spacing" onChange={(e) => { setTitle(e.target.value) }} value={title} placeholder="Enter a title here..." required></input>
                             <br></br>
                             <textarea rows="5" id="entry-snippet" className="spacing" onChange={(e) => { setBody(e.target.value) }} value={body} form="new-entry-form" placeholder="Begin your journal entry here..." required></textarea>
                             <br></br>
-                            <button className="button center done">Done</button>
+                            <button className="button done">Done</button>
                         </form>
                     </div>
                 </div>
@@ -47,7 +57,7 @@ const NewEntry = () => {
     }
 
     return (
-       renderView()
+        renderView()
     )
 }
 

@@ -7,7 +7,7 @@ const Moodivities = () => {
 
     return (
         <div>
-            <NavBar title = 'moodivities' />
+            <NavBar title = 'moodivities' page = 'Moodivities'/>
             <h1 className="center suggest-heading">Suggested Activities to Improve Your Mental Health</h1>
             <Activity />
         </div>

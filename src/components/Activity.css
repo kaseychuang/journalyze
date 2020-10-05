@@ -14,6 +14,7 @@
     cursor: pointer;
     transition: 0.3s;
     margin-left: 10.5%;
+    margin-bottom: 10px !important;
 }
 
 .emotion {
@@ -79,6 +80,7 @@ hr.separator:after {
 
 #emoji-list {
     margin-top: 30px;
+    margin-bottom: 20px;
 }
 
 .emoji:hover,
