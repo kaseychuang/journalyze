@@ -17,3 +17,8 @@
 .moodivities {
     margin-right: 20px;
 }
+
+.active-link {
+    text-decoration: underline !important;
+    color: black !important;
+;}
