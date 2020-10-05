@@ -7,6 +7,16 @@
     border: none;
 }
 
+.cancel-button{
+    color: red !important;
+    float: right;
+}
+
+.cancel-button:hover{
+    cursor: pointer;
+    font-weight: bold;
+}
+
 input[type=text], textarea, select {
     width: 30%;
     padding: 12px 20px;
@@ -24,3 +34,4 @@ input[type=text]:focus, textarea:focus {
 textarea {
     width: 100%;
 }
+

@@ -9,12 +9,14 @@ import ViewEntry from './components/ViewEntry.js';
 import ViewStats from './components/ViewStats.js';
 
 class App extends React.Component {
- 
+
     render() {
         return (
             <Router>
                 <div>
                     <link href='https://fonts.googleapis.com/css?family=Quicksand' rel='stylesheet'></link>
+                    <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+                        rel="stylesheet"></link>
                     <Route path='/' exact component={Home} />
                     <Route path='/moodivities' exact component={Moodivities} />
                     <Route path='/entry/:id' exact component={ViewEntry} />
